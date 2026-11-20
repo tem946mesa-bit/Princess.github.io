@@ -1,0 +1,1578 @@
+
+/* =========================================
+   PRINCESS BIRTHDAY WEBSITE
+   Princess Ri Ka
+   Theme: Pink Luxury & Gold
+========================================= */
+
+
+/* =========================================
+   1. GOOGLE FONT & ROOT
+========================================= */
+
+:root {
+    --pink: #f8b9d0;
+    --light-pink: #fff0f5;
+    --dark-pink: #d94f85;
+    --deep-pink: #a92f61;
+    --gold: #d4af37;
+    --light-gold: #f8e7a1;
+    --white: #ffffff;
+    --dark: #5c3045;
+    --shadow: 0 10px 35px rgba(180, 65, 110, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Battambang', sans-serif;
+    background: linear-gradient(
+        135deg,
+        #fff7fa,
+        #ffe6ef,
+        #fff5f8
+    );
+    color: var(--dark);
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+.logo {
+    font-family: 'Playfair Display', serif;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* =========================================
+   2. WELCOME SCREEN
+========================================= */
+
+.welcome-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            rgba(255, 220, 235, 0.82),
+            rgba(255, 240, 247, 0.95)
+        ),
+        url("../assets/images/palace.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    transition: opacity 0.8s ease,
+                visibility 0.8s ease;
+}
+
+.welcome-screen.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.welcome-box {
+    width: min(90%, 550px);
+    padding: 55px 30px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.88);
+    border: 2px solid var(--gold);
+    border-radius: 25px;
+
+    box-shadow: 0 15px 50px rgba(170, 60, 100, 0.2);
+
+    animation: welcomeFloat 3s ease-in-out infinite;
+}
+
+.crown {
+    font-size: 65px;
+    margin-bottom: 20px;
+    animation: crownFloat 2s infinite ease-in-out;
+}
+
+.welcome-box h1 {
+    color: var(--deep-pink);
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.welcome-box p {
+    color: #8c5870;
+    margin-bottom: 12px;
+}
+
+.welcome-box h2 {
+    color: var(--gold);
+    font-size: 42px;
+    margin-bottom: 30px;
+}
+
+
+/* =========================================
+   3. BUTTON
+========================================= */
+
+.main-button {
+    display: inline-block;
+
+    padding: 14px 32px;
+
+    border: 2px solid var(--gold);
+    border-radius: 50px;
+
+    background: linear-gradient(
+        135deg,
+        #f6a8c5,
+        #dc6596
+    );
+
+    color: var(--white);
+
+    font-size: 15px;
+    font-weight: bold;
+
+    box-shadow: 0 6px 20px rgba(217, 79, 133, 0.25);
+
+    transition: all 0.3s ease;
+}
+
+.main-button:hover {
+    transform: translateY(-5px) scale(1.03);
+
+    background: linear-gradient(
+        135deg,
+        var(--gold),
+        #e7bd59
+    );
+
+    color: #ffffff;
+
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.35);
+}
+
+.main-button:active {
+    transform: scale(0.96);
+}
+
+
+/* =========================================
+   4. MAIN CONTENT
+========================================= */
+
+.main-content {
+    display: none;
+    animation: fadeIn 1.2s ease forwards;
+}
+
+.main-content.show {
+    display: block;
+}
+
+
+/* =========================================
+   5. NAVIGATION BAR
+========================================= */
+
+.navbar {
+    width: 100%;
+    min-height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 15px 7%;
+
+    background: rgba(255, 255, 255, 0.92);
+
+    border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+
+    box-shadow: 0 3px 20px rgba(150, 50, 90, 0.08);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    backdrop-filter: blur(12px);
+}
+
+.logo {
+    color: var(--deep-pink);
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #87536a;
+    font-size: 13px;
+    font-weight: bold;
+
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--dark-pink);
+}
+
+.music-button {
+    padding: 9px 18px;
+
+    border: 1px solid var(--gold);
+    border-radius: 30px;
+
+    background: #fff4f8;
+    color: var(--deep-pink);
+
+    font-size: 13px;
+
+    transition: 0.3s;
+}
+
+.music-button:hover {
+    background: var(--pink);
+    color: white;
+}
+
+
+/* =========================================
+   6. HERO SECTION
+========================================= */
+
+.hero-section {
+    min-height: 650px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 70px;
+
+    padding: 80px 10%;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255, 225, 238, 0.95),
+            rgba(255, 243, 248, 0.82)
+        ),
+        url("../assets/images/palace.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(255, 255, 255, 0.7),
+            transparent 30%
+        );
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 550px;
+    z-index: 2;
+    animation: slideLeft 1.2s ease;
+}
+
+.hero-crown {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.small-title {
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.hero-content h1 {
+    color: var(--deep-pink);
+    font-size: clamp(38px, 5vw, 65px);
+    line-height: 1.2;
+}
+
+.princess-name {
+    color: var(--gold);
+    font-size: clamp(35px, 5vw, 60px);
+    margin-top: 10px;
+}
+
+.gold-line {
+    width: 100px;
+    height: 3px;
+
+    margin: 22px auto;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--gold),
+        transparent
+    );
+}
+
+.hero-content .gold-line {
+    margin-left: 0;
+}
+
+.birthday-date {
+    color: #a65b79;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.hero-description {
+    color: #80536a;
+    font-size: 15px;
+    line-height: 2.2;
+    margin-bottom: 30px;
+}
+
+.hero-image {
+    position: relative;
+    z-index: 2;
+
+    width: min(360px, 35vw);
+    min-width: 260px;
+
+    padding: 12px;
+
+    border: 3px solid var(--gold);
+    border-radius: 190px 190px 35px 35px;
+
+    background: rgba(255, 255, 255, 0.6);
+
+    box-shadow: 0 15px 40px rgba(180, 65, 110, 0.2);
+
+    animation: slideRight 1.2s ease;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 450px;
+
+    object-fit: cover;
+
+    border-radius: 180px 180px 25px 25px;
+}
+
+.image-decoration {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: max-content;
+
+    padding: 10px 20px;
+
+    background: white;
+    border: 1px solid var(--gold);
+    border-radius: 30px;
+
+    font-size: 20px;
+}
+
+
+/* =========================================
+   7. SECTION COMMON
+========================================= */
+
+section {
+    scroll-margin-top: 90px;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-heading span {
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.section-heading h2 {
+    color: var(--deep-pink);
+    font-size: clamp(28px, 4vw, 42px);
+    margin-top: 12px;
+}
+
+.section-heading p {
+    color: #96677c;
+    font-size: 14px;
+    margin-top: 12px;
+}
+
+
+/* =========================================
+   8. MESSAGE SECTION
+========================================= */
+
+.message-section {
+    padding: 100px 10%;
+
+    background: linear-gradient(
+        135deg,
+        #fff8fb,
+        #ffeaf2
+    );
+}
+
+.message-card {
+    max-width: 850px;
+    margin: auto;
+
+    padding: 45px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    border: 1px solid var(--light-gold);
+    border-radius: 25px;
+
+    box-shadow: var(--shadow);
+
+    position: relative;
+}
+
+.message-card::before,
+.message-card::after {
+    content: "✦";
+
+    position: absolute;
+
+    color: var(--gold);
+    font-size: 30px;
+}
+
+.message-card::before {
+    top: 15px;
+    left: 20px;
+}
+
+.message-card::after {
+    bottom: 15px;
+    right: 20px;
+}
+
+.message-icon {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.message-card p {
+    color: #81536a;
+    font-size: 15px;
+    line-height: 2.4;
+    margin-bottom: 20px;
+}
+
+.message-card .message-ending {
+    color: var(--dark-pink);
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-weight: bold;
+    margin-top: 25px;
+}
+
+
+/* =========================================
+   9. GALLERY SECTION
+========================================= */
+
+.gallery-section {
+    padding: 100px 8%;
+
+    background: #fffafd;
+}
+
+.gallery-container {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 30px;
+
+    max-width: 1100px;
+    margin: auto;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+
+    height: 350px;
+
+    border: 3px solid var(--gold);
+    border-radius: 20px;
+
+    background: #ffe6ef;
+
+    box-shadow: var(--shadow);
+
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-10px);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-caption {
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    padding: 20px 10px;
+
+    text-align: center;
+
+    color: white;
+
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+
+    background: linear-gradient(
+        transparent,
+        rgba(100, 30, 60, 0.8)
+    );
+}
+
+
+/* =========================================
+   10. PALACE SECTION
+========================================= */
+
+.palace-section {
+    min-height: 450px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 80px 10%;
+
+    background:
+        linear-gradient(
+            rgba(80, 25, 55, 0.45),
+            rgba(80, 25, 55, 0.55)
+        ),
+        url("../assets/images/palace.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.palace-content {
+    max-width: 700px;
+    padding: 35px;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 25px;
+
+    backdrop-filter: blur(8px);
+}
+
+.palace-icon {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.palace-content h2 {
+    color: #fff0c0;
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+.palace-content p {
+    color: white;
+    font-size: 15px;
+    line-height: 2.2;
+}
+
+
+/* =========================================
+   11. CAKE SECTION
+========================================= */
+
+.cake-section {
+    padding: 100px 10%;
+
+    text-align: center;
+
+    background: linear-gradient(
+        135deg,
+        #fff4f8,
+        #ffe4ee
+    );
+}
+
+.cake-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 30px;
+}
+
+.cake {
+    width: 220px;
+    height: 190px;
+
+    position: relative;
+
+    margin: 30px auto 10px;
+}
+
+.cake-bottom {
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 220px;
+    height: 75px;
+
+    background: linear-gradient(
+        135deg,
+        #f28db5,
+        #d94f85
+    );
+
+    border-radius: 12px 12px 20px 20px;
+
+    box-shadow: 0 8px 0 #bd3e72;
+}
+
+.cake-middle {
+    position: absolute;
+
+    bottom: 75px;
+    left: 20px;
+
+    width: 180px;
+    height: 55px;
+
+    background: linear-gradient(
+        135deg,
+        #ffe3ec,
+        #f6abc8
+    );
+
+    border-radius: 12px 12px 8px 8px;
+}
+
+.cake-top {
+    position: absolute;
+
+    bottom: 125px;
+    left: 40px;
+
+    width: 140px;
+    height: 40px;
+
+    background: #fff4f8;
+
+    border-radius: 50% 50% 10px 10px;
+
+    border: 2px solid var(--gold);
+
+    z-index: 2;
+}
+
+.candle {
+    position: absolute;
+
+    bottom: 163px;
+    left: 105px;
+
+    width: 10px;
+    height: 40px;
+
+    background: linear-gradient(
+        90deg,
+        #fff,
+        #e8b8cb
+    );
+
+    border-radius: 5px;
+
+    z-index: 3;
+}
+
+.flame {
+    position: absolute;
+
+    top: -25px;
+    left: -4px;
+
+    width: 18px;
+    height: 25px;
+
+    background: linear-gradient(
+        to top,
+        #ff9500,
+        #ffe66d
+    );
+
+    border-radius: 50% 50% 40% 40%;
+
+    box-shadow: 0 0 20px #ffb347;
+
+    animation: flame 0.5s infinite alternate;
+}
+
+.flame.off {
+    display: none;
+}
+
+.wish-message {
+    color: var(--dark-pink);
+    font-size: 15px;
+    line-height: 2;
+}
+
+
+/* =========================================
+   12. LETTER SECTION
+========================================= */
+
+.letter-section {
+    padding: 100px 10%;
+
+    text-align: center;
+
+    background: #fffafd;
+}
+
+.letter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 30px;
+}
+
+.envelope {
+    width: min(90vw, 400px);
+    height: 270px;
+
+    position: relative;
+
+    margin: 20px auto;
+
+    background: #f3a5c2;
+
+    border: 2px solid var(--gold);
+    border-radius: 10px;
+
+    box-shadow: 0 15px 30px rgba(160, 60, 100, 0.2);
+
+    cursor: pointer;
+
+    perspective: 1000px;
+}
+
+.envelope-back {
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        135deg,
+        #f5a7c3,
+        #e77fa8
+    );
+
+    border-radius: 10px;
+}
+
+.envelope-front {
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 65%;
+
+    background: #ed91b3;
+
+    clip-path: polygon(
+        0 0,
+        50% 65%,
+        100% 0,
+        100% 100%,
+        0 100%
+    );
+
+    z-index: 3;
+}
+
+.letter-paper {
+    position: absolute;
+
+    left: 5%;
+    bottom: 10px;
+
+    width: 90%;
+    height: 240px;
+
+    padding: 25px 20px;
+
+    overflow-y: auto;
+
+    background: #fffdf5;
+
+    border: 1px solid var(--gold);
+    border-radius: 5px;
+
+    text-align: left;
+
+    transition: all 0.8s ease;
+
+    z-index: 2;
+}
+
+.letter-paper h3 {
+    color: var(--deep-pink);
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.letter-paper p {
+    color: #775064;
+    font-size: 12px;
+    line-height: 2;
+    margin-bottom: 15px;
+}
+
+.letter-paper .letter-signature {
+    text-align: right;
+    color: var(--dark-pink);
+    font-weight: bold;
+}
+
+.envelope.open .letter-paper {
+    bottom: 100px;
+    height: 390px;
+    z-index: 4;
+}
+
+.envelope.open .envelope-front {
+    z-index: 1;
+}
+
+
+/* =========================================
+   13. GIFT SECTION
+========================================= */
+
+.gift-section {
+    padding: 100px 10%;
+
+    text-align: center;
+
+    background: linear-gradient(
+        135deg,
+        #fff0f6,
+        #ffe3ed
+    );
+}
+
+.gift-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 30px;
+}
+
+.gift-box {
+    width: 150px;
+    height: 140px;
+
+    position: relative;
+
+    margin: 30px auto;
+
+    cursor: pointer;
+
+    transition: transform 0.5s ease;
+}
+
+.gift-box:hover {
+    transform: translateY(-10px) rotate(-3deg);
+}
+
+.gift-body {
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 150px;
+    height: 100px;
+
+    background: linear-gradient(
+        135deg,
+        #ed679b,
+        #bd3472
+    );
+
+    border-radius: 5px 5px 12px 12px;
+
+    box-shadow: 0 8px 15px rgba(150, 40, 85, 0.2);
+}
+
+.gift-lid {
+    position: absolute;
+
+    top: 30px;
+    left: -8px;
+
+    width: 166px;
+    height: 30px;
+
+    background: linear-gradient(
+        135deg,
+        #f7bad0,
+        #e66d9e
+    );
+
+    border: 1px solid var(--gold);
+    border-radius: 5px;
+
+    z-index: 2;
+
+    transition: transform 0.8s ease;
+}
+
+.gift-ribbon {
+    position: absolute;
+
+    top: 30px;
+    left: 65px;
+
+    width: 20px;
+    height: 110px;
+
+    background: var(--gold);
+
+    z-index: 3;
+}
+
+.gift-box.open .gift-lid {
+    transform: translateY(-70px) rotate(-15deg);
+}
+
+.gift-message {
+    max-width: 500px;
+
+    color: var(--deep-pink);
+    font-size: 15px;
+    line-height: 2;
+}
+
+
+/* =========================================
+   14. FOOTER
+========================================= */
+
+.footer {
+    padding: 70px 10% 30px;
+
+    text-align: center;
+
+    background: linear-gradient(
+        135deg,
+        #7d3157,
+        #a74370
+    );
+
+    color: white;
+}
+
+.footer-crown {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.footer h2 {
+    color: #ffe6a4;
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.footer p {
+    font-size: 13px;
+    line-height: 2;
+}
+
+.footer-line {
+    width: 100px;
+    height: 2px;
+
+    margin: 25px auto;
+
+    background: var(--gold);
+}
+
+.footer .copyright {
+    color: #f5c7d9;
+    font-size: 12px;
+}
+
+.footer-love {
+    color: #ffe6a4;
+    margin-top: 10px;
+}
+
+
+/* =========================================
+   15. FLOATING PARTICLES
+========================================= */
+
+.particle {
+    position: fixed;
+
+    bottom: -30px;
+
+    pointer-events: none;
+
+    z-index: 999;
+
+    animation: particleFloat linear forwards;
+}
+
+
+/* =========================================
+   16. CONFETTI
+========================================= */
+
+.confetti {
+    position: fixed;
+
+    top: -20px;
+
+    pointer-events: none;
+
+    z-index: 10000;
+
+    animation: confettiFall 3s linear forwards;
+}
+
+
+/* =========================================
+   17. ANIMATIONS
+========================================= */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes welcomeFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes crownFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(5deg);
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(60px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes flame {
+    from {
+        transform: scale(1) rotate(-5deg);
+        opacity: 0.85;
+    }
+
+    to {
+        transform: scale(1.15) rotate(5deg);
+        opacity: 1;
+    }
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   18. TABLET RESPONSIVE
+========================================= */
+
+@media screen and (max-width: 900px) {
+
+    .navbar {
+        padding: 15px 4%;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    .hero-section {
+        gap: 30px;
+        padding: 70px 5%;
+    }
+
+    .hero-image {
+        width: 300px;
+        min-width: 220px;
+    }
+
+    .hero-image img {
+        height: 380px;
+    }
+
+    .gallery-container {
+        gap: 18px;
+    }
+
+    .gallery-item {
+        height: 280px;
+    }
+
+}
+
+
+/* =========================================
+   19. MOBILE RESPONSIVE
+========================================= */
+
+@media screen and (max-width: 600px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    /* Navigation */
+
+    .navbar {
+        min-height: auto;
+
+        display: flex;
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 12px;
+
+        padding: 15px 10px;
+    }
+
+    .logo {
+        width: 100%;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .nav-links {
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        gap: 10px 16px;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    .music-button {
+        padding: 7px 15px;
+    }
+
+
+    /* Welcome */
+
+    .welcome-box {
+        padding: 40px 20px;
+    }
+
+    .welcome-box h1 {
+        font-size: 27px;
+    }
+
+    .welcome-box h2 {
+        font-size: 35px;
+    }
+
+
+    /* Hero */
+
+    .hero-section {
+        flex-direction: column-reverse;
+
+        text-align: center;
+
+        gap: 50px;
+
+        padding: 60px 7%;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero-content .gold-line {
+        margin: 22px auto;
+    }
+
+    .hero-image {
+        width: 260px;
+        min-width: 0;
+    }
+
+    .hero-image img {
+        height: 330px;
+    }
+
+    .hero-crown {
+        font-size: 45px;
+    }
+
+    .small-title {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .birthday-date {
+        font-size: 16px;
+    }
+
+    .hero-description {
+        font-size: 13px;
+    }
+
+
+    /* Sections */
+
+    .message-section,
+    .gallery-section,
+    .cake-section,
+    .letter-section,
+    .gift-section {
+        padding: 70px 6%;
+    }
+
+    .section-heading {
+        margin-bottom: 35px;
+    }
+
+    .section-heading h2 {
+        font-size: 28px;
+    }
+
+    .section-heading span {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+
+    /* Message */
+
+    .message-card {
+        padding: 35px 20px;
+    }
+
+    .message-card p {
+        font-size: 13px;
+        line-height: 2.2;
+    }
+
+
+    /* Gallery */
+
+    .gallery-container {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+
+    .gallery-item {
+        height: 350px;
+    }
+
+
+    /* Palace */
+
+    .palace-section {
+        min-height: 350px;
+        padding: 50px 6%;
+        background-attachment: scroll;
+    }
+
+    .palace-content {
+        padding: 25px 15px;
+    }
+
+    .palace-content h2 {
+        font-size: 27px;
+    }
+
+    .palace-content p {
+        font-size: 13px;
+    }
+
+
+    /* Cake */
+
+    .cake {
+        transform: scale(0.85);
+    }
+
+
+    /* Letter */
+
+    .envelope {
+        width: 90%;
+        max-width: 340px;
+        height: 240px;
+    }
+
+    .letter-paper {
+        height: 210px;
+        padding: 20px 15px;
+    }
+
+    .letter-paper h3 {
+        font-size: 17px;
+    }
+
+    .letter-paper p {
+        font-size: 11px;
+    }
+
+    .envelope.open .letter-paper {
+        height: 350px;
+        bottom: 85px;
+    }
+
+
+    /* Footer */
+
+    .footer {
+        padding: 55px 6% 25px;
+    }
+
+    .footer h2 {
+        font-size: 27px;
+    }
+
+    .footer p {
+        font-size: 11px;
+    }
+
+}
+
+
+/* =========================================
+   20. SMALL MOBILE
+========================================= */
+
+@media screen and (max-width: 360px) {
+
+    .hero-content h1 {
+        font-size: 34px;
+    }
+
+    .princess-name {
+        font-size: 32px;
+    }
+
+    .hero-image {
+        width: 220px;
+    }
+
+    .hero-image img {
+        height: 290px;
+    }
+
+    .nav-links {
+        gap: 8px 12px;
+    }
+
+    .nav-links a {
+        font-size: 10px;
+    }
+
+    .gallery-item {
+        height: 280px;
+    }
+
+    .main-button {
+        padding: 12px 23px;
+        font-size: 13px;
+    }
+
+}
+
+
+/* =========================================
+   21. ACCESSIBILITY
+========================================= */
+
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}
+
